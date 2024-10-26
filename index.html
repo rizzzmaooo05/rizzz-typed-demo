@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rizzz-typed - Demo</title>
+    <link rel="stylesheet" href="/assets/styles/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/rizzz-typed@1.0.3/src/dist/rizzz-typed.js"></script>
+  </head>
+  <body>
+    <div id="home">
+      <p></p>
+    </div>
+    <div id="configuration">
+      <h3>Configuration</h3>
+      <div id="texts">
+        <h3>Texts</h3>
+        <div id="text-wrapper">
+          <input type="text" />
+        </div>
+        <button type="submit" id="add-text">Add Text</button>
+      </div>
+      <div id="other-conf-wrapper">
+        <div id="type-speed">
+          <h3>Type Speed</h3>
+          <input type="number" min="0" max="1000" />
+        </div>
+        <div id="delete-speed">
+          <h3>Delete Speed</h3>
+          <input type="number" min="0" max="1000" />
+        </div>
+        <div id="blink-speed">
+          <h3>Blink Speed</h3>
+          <input type="number" min="0" max="1000"  />
+        </div>
+      </div>
+      <button type="submit" id="save-changes">Save Changes</button>
+    </div>
+    <script id="typed-script">
+      const config = JSON.parse(window.localStorage.getItem("config"));
+
+      const defaultConfig = {
+        texts: ["this is text one.", "this is text two.", "this is last text."],
+        query: "#home > p",
+        typeSpeed: 100,
+        deleteSpeed: 20,
+        blinkSpeed: 400,
+        isLoop: true,
+      };
+
+      if(config) {
+        rizzzTyped(config)
+      } else {
+        rizzzTyped(defaultConfig)
+      }
+
+    </script>
+    <!-- <script>
+    window.localStorage.setItem('lalala', JSON.stringify({nama: 'rizzz'}))
+  </script> -->
+    <script src="/assets/scripts/main.js"></script>
+  </body>
+</html>
